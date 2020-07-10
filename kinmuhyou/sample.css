@@ -1,0 +1,6 @@
+p.sample {height:50px;  font-weight:bold; position:relative }
+span.sample1 { position:static; top:10px; left:10px }
+span.sample2 { position:relative; top:10px; left:10px }
+span.sample3 { position:static; top:500px; left:600px }
+span.sample4 { position:fixed; top:10px; left:10px }@charset "UTF-8";
+span.sample5 { position:fixed; top:121px; left:850px }
