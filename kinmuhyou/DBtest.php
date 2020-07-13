@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -44,28 +43,38 @@ try {
     print 'ステータス';
     print '</td>';
 
+
     while (true) {
         $rec = $stmt->fetch(PDO::FETCH_ASSOC);
         $rec1 = $stmt1->fetch(PDO::FETCH_ASSOC);
+
         if ($rec == false) {
             break;
         }
         print '<tr><td>';
         print '<input type="radio"name="staffcode"value="' . $rec['staff_number'] . '">';
-        print ' <td>';
+        print '<td>';
         print $rec['staff_number'];
         print '</td>';
         print '<td>';
+
         print $rec1['familyname'];
         print $rec1['firstname'];
-        print '</td>';
+
         print '<td>';
-        print $rec['status'];
-        print '</td>';
-        print '</tr>';
+        $status = $rec['status'];
+        if ($status == '0') {
+            print ' 未入力';
+        } else if ($status == '1') {
+            print '途中完了';
+        } else if ($status == '2') {
+            print '完了';
+        }
+        print '</td></tr>';
 
         print '</table>';
     }
+
 } catch (Exception $e) {
     print 'ただいま障害が発生しております';
     exit();
